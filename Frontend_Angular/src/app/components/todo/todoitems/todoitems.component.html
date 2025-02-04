@@ -1,0 +1,23 @@
+<ul class="list-group">
+    <li class="list-group-item m-0 position-relative border-0" *ngFor="let item of todolist">
+        <a style="cursor: pointer;" class="float-start" (click)="updateStatus(item)">
+            <span class="me-3">
+                <i class="fa grd-icon" [ngClass]="item.status === 'pending' ? 'fa-check-square-o': 'fa-undo'"></i>
+            </span>
+        </a>
+        <h6 class="m-0 text-start text-body">
+            <span *ngIf="item.status === 'pending'">{{item.task}}</span>
+            <del class="text-black-30" *ngIf="item.status === 'completed'">{{item.task}}</del>
+        </h6>
+        <a style="cursor: pointer;" (click)="edit(item)" *ngIf="item.status === 'pending'">
+            <span class="ms-1 text-black-50 edit-icon">
+                <i class="fa fa-pencil-square-o"></i>
+            </span>
+        </a>
+        <a style="cursor: pointer;" (click)="delete(item.id)">
+            <span class="ms-1 text-black-50 delete-icon">
+                <i class="fa fa-trash-o"></i>
+            </span>
+        </a>
+    </li>
+</ul>
