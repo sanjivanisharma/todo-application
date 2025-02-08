@@ -3,6 +3,7 @@
 body {
     font-family: 'Exo', sans-serif;
     overflow-y: hidden;
+    overflow-x: hidden;
     position: relative;
 }
 

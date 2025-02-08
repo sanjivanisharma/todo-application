@@ -19,20 +19,41 @@
 
         <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="nav-all-tab" role="tabpanel" aria-labelledby="nav-all-tab">
-                <app-todoitems [todolist]="todo" (updatedItem)="changeStatus($event)" (deletedItem)="deleteTodoItem($event)" (editedItem)="updateTodoItem($event)">
-                    <p class="text-danger text-center py-3 m-0" *ngIf="!todo?.length">No Tasks Found</p>
+                <app-todoitems [todolist]="todo" (updatedItem)="changeStatus($event)"
+                    (deletedItem)="deleteTodoItem($event)" (editedItem)="updateTodoItem($event)">
                 </app-todoitems>
+                <p class="text-danger text-center py-3 m-0" *ngIf="!todo?.length">No Tasks Found</p>
             </div>
             <div class="tab-pane fade" id="nav-active" role="tabpanel" aria-labelledby="nav-active-tab">
-                <app-todoitems [todolist]="pendingTask" (updatedItem)="changeStatus($event)" (deletedItem)="deleteTodoItem($event)" (editedItem)="updateTodoItem($event)">
-                    <p class="text-danger text-center py-3 m-0" *ngIf="!pendingTask?.length">No Active Tasks Found</p>
+                <app-todoitems [todolist]="pendingTask" (updatedItem)="changeStatus($event)"
+                    (deletedItem)="deleteTodoItem($event)" (editedItem)="updateTodoItem($event)">
                 </app-todoitems>
+                <p class="text-danger text-center py-3 m-0" *ngIf="!pendingTask?.length">No Active Tasks Found</p>
             </div>
             <div class="tab-pane fade" id="nav-completed" role="tabpanel" aria-labelledby="nav-completed-tab">
-                <app-todoitems [todolist]="completeTask" (updatedItem)="changeStatus($event)" (deletedItem)="deleteTodoItem($event)" (editedItem)="updateTodoItem($event)">
-                    <p class="text-danger text-center py-3 m-0" *ngIf="!pendingTask?.length">No Completed Tasks Found</p>
+                <app-todoitems [todolist]="completeTask" (updatedItem)="changeStatus($event)"
+                    (deletedItem)="deleteTodoItem($event)" (editedItem)="updateTodoItem($event)">
                 </app-todoitems>
+                <p class="text-danger text-center py-3 m-0" *ngIf="!pendingTask?.length">No Completed Tasks Found
+                </p>
             </div>
         </div>
     </ul>
+</div>
+<div>
+    <form [formGroup]="todoForm" (ngSubmit)="addTodoItem()" novalidate class="d-flex justify-content-between mt-3">
+        <div class="form-group">
+            <input type="text" id="task-input" class="form-control border-dark" formControlName="task" placeholder="New Task"
+                [ngClass]="todoForm.controls.task.touched && todoForm.controls.task.errors?.minlength || todoForm.controls.task.errors?.maxlength ? 'is-invalid' : ''">
+            <small class="form-text text-danger" *ngIf="todoForm.controls.task.errors?.minlength">Task title must be at
+                least 2 characters.</small>
+            <small class="form-text text-danger" *ngIf="todoForm.controls.task.errors?.maxlength">Task title must not
+                exceed
+                30 characters.</small>
+        </div>
+        <div>
+            <button class="btn btn-light border-dark text-weight-bold" type="submit"
+                [disabled]="!todoForm.valid || todoForm.controls.task.value === ''">Add Task</button>
+        </div>
+    </form>
 </div>

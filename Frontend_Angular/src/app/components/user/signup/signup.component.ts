@@ -34,7 +34,7 @@ export class SignupComponent implements OnInit {
             this.toastr.success("User already exists")
           } else if(res.message === "User with the provided email already exists") {
             this.toastr.success("Email already exists")
-          } else if(res.message === "User Created") {
+          } else if(res.message === "User Created successfully") {
             this.toastr.success("User successfully Signed Up")
             this.signupForm.reset()
             this.router.navigateByUrl('/login')
