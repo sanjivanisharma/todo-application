@@ -2,18 +2,18 @@
 
 A simple and dynamic ToDo application with full CRUD (Create, Read, Update, Delete) functionalities. This application allows users to manage their tasks efficiently.
 
-</> Front-end: Built using Angular
-🌐 Back-end: Powered by Node.js
-🛢️ Database: Data stores in MySQL
+</> Front-end: Built using Angular  
+🌐 Back-end: Powered by Node.js  
+🛢️ Database: Data stores in MySQL  
 
 
 ## 🚀 Features
 
-✅ Create, update, and delete tasks
-✅ Mark tasks as completed or pending
-✅ User-friendly and responsive UI
-✅ Persistent storage for tasks
-✅ REST API integration
+✅ Create, update, and delete tasks  
+✅ Mark tasks as completed or pending  
+✅ User-friendly and responsive UI  
+✅ Persistent storage for tasks  
+✅ REST API integration  
 
 
 ## 📁 Project Structure
