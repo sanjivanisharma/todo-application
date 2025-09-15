@@ -38,5 +38,25 @@
 
 .nav-tabs .nav-link.active {
     font-weight: 900;
-    color: #0d6efd !important;
+    color: var(--primary) !important;
+}
+
+/* Item row polish */
+.list-group-item {
+    background: transparent;
+    transition: background 0.2s ease, transform 0.08s ease;
+}
+.list-group-item:hover {
+    background: rgba(255,255,255,0.04);
+}
+
+/* Icons */
+.fa { font-size: 1.05rem; }
+.delete-icon i { color: rgba(239, 68, 68, .85); }
+.edit-icon i { color: rgba(96, 165, 250, .95); }
+
+/* Responsive paddings */
+@media (max-width: 575.98px) {
+    .delete-icon { right: 12px; }
+    .edit-icon { right: 36px; }
 }

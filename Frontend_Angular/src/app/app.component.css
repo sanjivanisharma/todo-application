@@ -1,86 +1,54 @@
+/* App shell & hero */
 .navbar {
-    position: absolute !important;
+    position: sticky !important;
+    top: 0;
+    backdrop-filter: blur(10px);
+    background: rgba(15, 23, 42, 0.2) !important;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    z-index: 1000;
 }
 
-.date-time {
-    background: #fff;
-    font-size: 10px;
-    font-weight: 500;
-    padding: 8px 12px;
-    border-radius: 4px;
-}
-
-.date-time i {
-    font-size: 15px;
-    padding-right: 8px;
-}
-
-.task-card {
-    height: 100px;
-}
-
-.task-card .item-left {
-    text-align: center;
-    padding: 2px 12px 8px 12px;
-    float: left;
-    color: #fff;
-}
-
-.task-card .item-right {
-    font-size: 0.9rem;
-}
-
-.search-input {
-    border: 1px solid #3333;
-}
-
-.search-input input {
-    height: 44px;
-    border: 0;
-    padding: 0;
-}
-
-.search-input input:active,
-.search-input input:focus {
-    box-shadow: none;
-}
-
-select:active,
-select:focus {
-    box-shadow: none;
-}
+.navbar .btn { border-radius: 999px; padding: 8px 14px; }
 
 .todo-list-wrapper .top-bg {
-    background-image: url(../assets/background.jpg);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-position: bottom;
-    height: 280px;
+    position: relative;
+    height: 300px;
+    background: radial-gradient(600px 300px at 20% 30%, rgba(96,165,250,.25), transparent 40%),
+                radial-gradient(600px 300px at 80% 20%, rgba(167,139,250,.22), transparent 40%);
 }
 
 .todo-list-wrapper .top-bg::after {
     content: '';
-    background: #4568DC;
-    background: linear-gradient(to right, #10B4BB, #4568DC);
-    height: 280px;
     position: absolute;
-    width: 100%;
-    opacity: 0.8;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0));
 }
 
 .todo-list-wrapper .main-card {
-    margin-top: -200px;
-    margin-bottom: 40px;
+    margin-top: -180px;
+    margin-bottom: 56px;
     position: relative;
 }
 
 .todo-list-wrapper .main-card .header h1 {
-    letter-spacing: 12px;
-    margin: 0 0 20px 0;
+    letter-spacing: 0.4em;
+    margin: 0 0 16px 0;
 }
 
-.ngx-pagination {
-    margin: 0 !important;
-    padding: 0 !important;
-    text-align: center;
+/* Search inputs and selects general reset */
+.search-input { border: 1px solid rgba(255,255,255,0.08); }
+.search-input input { height: 44px; border: 0; padding: 0; }
+.search-input input:active,
+.search-input input:focus { box-shadow: none; }
+select:active, select:focus { box-shadow: none; }
+
+/* Responsive spacing */
+@media (max-width: 767.98px) {
+    .todo-list-wrapper .main-card { margin-top: -160px; }
+}
+
+@media (max-width: 575.98px) {
+    .todo-list-wrapper .top-bg { height: 240px; }
+    .todo-list-wrapper .main-card { margin-top: -140px; margin-bottom: 40px; }
+    .todo-list-wrapper .main-card .header h1 { letter-spacing: 0.2em; }
 }

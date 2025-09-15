@@ -1,34 +1,72 @@
 /* You can add global styles to this file, and also import other style files */
 
+/* Typography & Theme */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bg-gradient-start: #0f172a; /* slate-900 */
+    --bg-gradient-end: #1e293b;   /* slate-800 */
+    --surface: rgba(255, 255, 255, 0.08);
+    --surface-strong: rgba(255, 255, 255, 0.12);
+    --text: #e5e7eb; /* zinc-200 */
+    --text-muted: #94a3b8; /* slate-400 */
+    --primary: #60a5fa; /* blue-400 */
+    --primary-strong: #3b82f6; /* blue-500 */
+    --danger: #ef4444;
+    --success: #22c55e;
+    --radius: 16px;
+    --shadow-1: 0 10px 30px rgba(0,0,0,.25);
+    --shadow-2: 0 20px 60px rgba(0,0,0,.35);
+}
+
+html, body {
+    height: 100%;
+}
+
 body {
-    font-family: 'Exo', sans-serif;
-    overflow-y: hidden;
+    font-family: 'Inter', 'Exo', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    color: var(--text);
+    background: radial-gradient(1200px 800px at 10% 0%, #0b1220 0%, transparent 40%),
+                radial-gradient(1000px 800px at 90% 0%, #0b1220 0%, transparent 40%),
+                linear-gradient(180deg, var(--bg-gradient-start), var(--bg-gradient-end));
     overflow-x: hidden;
     position: relative;
 }
 
-.bg-muted {
-    background-color: #adadad;
+/* Subtle animated grid dots */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 24px 24px;
+    pointer-events: none;
 }
 
-.text-black-30 {
-    color: rgba(0, 0, 0, 0.3);
-}
+.bg-muted { background-color: #94a3b8; }
+.text-black-30 { color: rgba(255, 255, 255, 0.35); }
+.fs-07 { font-size: 0.7rem; }
 
-.fs-07 {
-    font-size: 0.7rem;
-}
-
+/* Card polish */
 .card {
-    box-shadow: rgba(17, 12, 46, .5) 0px 48px 100px 0px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+    border-radius: var(--radius);
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: var(--shadow-1);
+    backdrop-filter: blur(8px);
 }
 
-.grid-icon {
-    background: -webkit-gradient(linear, left top, left bottom, from(#B06AB3), to(#4568DC));
+.card:hover { box-shadow: var(--shadow-2); }
+
+.grid-icon, .grd-icon {
+    background: linear-gradient(180deg, #60a5fa, #a78bfa);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
 }
 
+/* Pagination */
 .ngx-pagination {
     margin: 20px 0;
     padding: 0;
@@ -36,26 +74,69 @@ body {
 }
 
 .ngx-pagination .current {
-    padding: 2px 10px;
-    background: #0d6efd !important;
-    border: 1px solid;
-    border-radius: 4px;
+    padding: 4px 12px;
+    background: var(--primary) !important;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 999px;
+    color: #0b1220;
+    font-weight: 600;
 }
 
+/* Toasts */
 #toast-container>div {
-    font-size: 0.9rem !important;
-    font-weight: 400 !important;
-    box-shadow: none !important;
-    padding: 12px 15px 8px 15px !important;
-    background-color: #323232 !important;
-    background-image: none !important;
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+    box-shadow: var(--shadow-1) !important;
+    padding: 12px 16px 10px 16px !important;
+    background-color: rgba(17, 24, 39, 0.95) !important;
+    color: var(--text) !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
 }
 
-button.toast-close-button {
-    top: -4px !important;
-    font-weight: 100 !important;
+button.toast-close-button { top: -4px !important; font-weight: 400 !important; }
+#toast-container>.toast-success { background-image: none !important; }
+
+/* Buttons */
+.btn-primary {
+    background: linear-gradient(180deg, var(--primary), var(--primary-strong));
+    border: 0;
+    color: #0b1220;
+    font-weight: 600;
 }
 
-#toast-container>.toast-success {
-    background-image: none !important;
+.btn-light {
+    background: rgba(255,255,255,0.9);
+    border: 1px solid rgba(0,0,0,0.06);
+}
+
+.btn-light:hover { background: #fff; }
+
+/* Inputs */
+.form-control {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: var(--text);
+}
+.form-control:focus {
+    background: rgba(255,255,255,0.08);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(96,165,250,0.2);
+    color: var(--text);
+}
+
+/* Scrollbar (WebKit) */
+*::-webkit-scrollbar { height: 10px; width: 10px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 999px; }
+*::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.25); }
+
+/* Responsive typography */
+h1, .h1 { font-weight: 800; letter-spacing: 0.08em; }
+h1 { font-size: clamp(1.75rem, 1rem + 2vw, 2.75rem); }
+
+/* Utility: glass surface */
+.glass {
+    background: var(--surface);
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(8px);
 }

@@ -4,12 +4,12 @@
             <ul class="top-links">
                 <li class="text-muted">{{pendingTask?.length}} item(s) left</li>
                 <li>
-                    <div id="nav-tab" class="nav nav-tabs border-0 px-5 mx-4" role="tablist">
-                        <button class="nav-link text-body border-0 active" id="nav-all-tab" data-bs-toggle="tab"
+                    <div id="nav-tab" class="nav nav-tabs border-0 px-3 px-md-5 mx-0 mx-md-4" role="tablist">
+                        <button class="nav-link border-0 active" id="nav-all-tab" data-bs-toggle="tab"
                             data-bs-target="#nav-all" aria-selected="true">All</button>
-                        <button class="nav-link text-body border-0" id="nav-active-tab" data-bs-toggle="tab"
+                        <button class="nav-link border-0" id="nav-active-tab" data-bs-toggle="tab"
                             data-bs-target="#nav-active" aria-selected="false">Active</button>
-                        <button class="nav-link text-body border-0" id="nav-completed-tab" data-bs-toggle="tab"
+                        <button class="nav-link border-0" id="nav-completed-tab" data-bs-toggle="tab"
                             data-bs-target="#nav-completed" aria-selected="false">Completed</button>
                     </div>
                 </li>
@@ -42,7 +42,7 @@
 </div>
 <div>
     <form [formGroup]="todoForm" (ngSubmit)="addTodoItem()" novalidate class="d-flex justify-content-between mt-3">
-        <div class="form-group">
+        <div class="form-group flex-grow-1">
             <input type="text" id="task-input" class="form-control border-dark" formControlName="task" placeholder="New Task"
                 [ngClass]="todoForm.controls.task.touched && todoForm.controls.task.errors?.minlength || todoForm.controls.task.errors?.maxlength ? 'is-invalid' : ''">
             <small class="form-text text-danger" *ngIf="todoForm.controls.task.errors?.minlength">Task title must be at

@@ -55,18 +55,6 @@ Run ``` ng serve --open ``` to start frontend.
 The front-end is served on http://localhost:4200/ and the back-end on http://localhost:3500/.
 
 
-## 🖥️ Demo
+## 🖥️ App
 
-<img width="1678" alt="Login" src="./Frontend_Angular/public/login.PNG">
-
-<img width="1678" alt="Signup" src="./Frontend_Angular/public/signup.PNG">
-
-<img width="1678" alt="Todolist_no_tasks" src="./Frontend_Angular/public/todo1.png">
-
-<img width="1678" alt="Todolist_all_tasks" src="./Frontend_Angular/public/todo2.png">
-
-<img width="1678" alt="Todolist_active_tasks" src="./Frontend_Angular/public/todo3.png">
-
-<img width="1678" alt="Todolist_completed_tasks" src="./Frontend_Angular/public/todo4.png">
-
-<img width="1678" alt="Todolist_add_task" src="./Frontend_Angular/public/todo5.png">
+<img width="1678" alt="Login" src="./Frontend_Angular/public/todo.png">
